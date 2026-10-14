@@ -1,0 +1,63 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="600" height="600" viewBox="0 0 600 600">
+  <defs>
+    <!-- Organic Ink Bleed Filter -->
+    <filter id="ink-bleed" x="-20%" y="-20%" width="140%" height="140%">
+      <feTurbulence type="fractalNoise" baseFrequency="0.08" numOctaves="4" result="rough" />
+      <feDisplacementMap in="SourceGraphic" in2="rough" scale="6" xChannelSelector="R" yChannelSelector="G" result="displaced" />
+      <feGaussianBlur in="displaced" stdDeviation="0.8" result="blurred" />
+      <feMerge>
+        <feMergeNode in="blurred" />
+        <feMergeNode in="SourceGraphic" />
+      </feMerge>
+    </filter>
+
+    <radialGradient id="ink-drop-core" cx="45%" cy="40%" r="55%">
+      <stop offset="0%" stop-color="#14110e" stop-opacity="0.95" />
+      <stop offset="60%" stop-color="#241d18" stop-opacity="0.8" />
+      <stop offset="90%" stop-color="#4a3b30" stop-opacity="0.5" />
+      <stop offset="100%" stop-color="#7a6250" stop-opacity="0" />
+    </radialGradient>
+  </defs>
+
+  <g filter="url(#ink-bleed)">
+    <!-- Primary Studio Ink Wash Pool (Top Right) -->
+    <path d="M 460,70 C 490,65 520,85 535,110 C 550,140 540,175 525,195 C 505,220 460,215 435,195 C 410,170 415,130 430,95 Z" fill="url(#ink-drop-core)" opacity="0.65" />
+    
+    <!-- Secondary Ink Stain (Bottom Left) -->
+    <path d="M 90,440 C 120,430 145,455 160,480 C 175,510 160,545 130,555 C 100,565 65,540 55,510 C 45,475 65,445 90,440 Z" fill="#261f1a" opacity="0.45" />
+
+    <!-- Subtle Center-Edge Watercolor Bleed -->
+    <path d="M 50,220 C 70,215 85,235 90,250 C 95,270 80,290 65,295 C 45,300 30,285 30,265 C 30,245 40,225 50,220 Z" fill="#3a2f26" opacity="0.35" />
+
+    <!-- Satellite Ink Splatters and Fine Droplets -->
+    <!-- Group 1: Near Top Wash -->
+    <circle cx="410" cy="85" r="4.5" fill="#1c1713" opacity="0.7" />
+    <circle cx="395" cy="115" r="3" fill="#1c1713" opacity="0.6" />
+    <circle cx="430" cy="60" r="2.5" fill="#2e251f" opacity="0.8" />
+    <circle cx="550" cy="90" r="3.5" fill="#241e19" opacity="0.65" />
+    <circle cx="560" cy="135" r="2" fill="#2e251f" opacity="0.7" />
+    <circle cx="485" cy="235" r="3.5" fill="#1c1713" opacity="0.55" />
+    <circle cx="455" cy="245" r="1.8" fill="#3a2f26" opacity="0.5" />
+    <circle cx="510" cy="255" r="2.2" fill="#241e19" opacity="0.6" />
+
+    <!-- Group 2: Fine Splatter Trail across diagonal -->
+    <circle cx="280" cy="210" r="2.2" fill="#2b231c" opacity="0.4" />
+    <circle cx="310" cy="240" r="1.5" fill="#3a2f26" opacity="0.45" />
+    <circle cx="340" cy="225" r="2.8" fill="#1c1713" opacity="0.5" />
+    <circle cx="260" cy="280" r="1.6" fill="#3a2f26" opacity="0.35" />
+
+    <!-- Group 3: Near Bottom Left Wash -->
+    <circle cx="180" cy="460" r="3" fill="#261f1a" opacity="0.6" />
+    <circle cx="150" cy="425" r="2" fill="#3a2f26" opacity="0.55" />
+    <circle cx="195" cy="495" r="2.5" fill="#1c1713" opacity="0.5" />
+    <circle cx="115" cy="390" r="3.2" fill="#2b231c" opacity="0.45" />
+    <circle cx="85" cy="410" r="1.5" fill="#2e251f" opacity="0.6" />
+    <circle cx="45" cy="460" r="2.8" fill="#1c1713" opacity="0.5" />
+    <circle cx="130" cy="575" r="3.5" fill="#241e19" opacity="0.6" />
+    <circle cx="155" cy="565" r="1.8" fill="#3a2f26" opacity="0.4" />
+
+    <!-- Dry Brush Streak Accent -->
+    <path d="M 440,320 Q 480,335 520,315" stroke="#3d3127" stroke-width="2.5" stroke-linecap="round" fill="none" opacity="0.35" stroke-dasharray="8 4 2 5" />
+    <path d="M 120,150 Q 150,170 190,165" stroke="#2b231c" stroke-width="1.8" stroke-linecap="round" fill="none" opacity="0.3" stroke-dasharray="6 3 1 4" />
+  </g>
+</svg>

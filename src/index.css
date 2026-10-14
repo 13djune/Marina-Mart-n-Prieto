@@ -1,0 +1,113 @@
+@import "tailwindcss";
+
+@theme {
+  --font-serif: "Playfair Display", serif;
+  --font-body: "Lora", serif;
+
+  --color-vampire-bg: #1c201d; /* Dark greenish gray from image */
+  --color-vampire-card: #2d332f; /* Card background from image */
+  --color-vampire-red: #ff3b1f; /* Vibrant red/orange from image */
+  --color-vampire-red-dark: #b8220f;
+  --color-bone: #f8f7f4;
+  --color-bone-muted: #c5cbc6; /* High contrast: 10.2:1 against #1c201d for WCAG AAA */
+  --color-tropical-green: #2b4530;
+  --color-tropical-dark: #0a1410;
+}
+
+@layer base {
+  html {
+    /* Lenis provides physics-based smooth scrolling; remove native smooth to prevent judder */
+    scroll-behavior: auto;
+  }
+  
+  body {
+    background-color: #1c201d;
+    color: #f8f7f4;
+    font-family: "Lora", Georgia, serif;
+    overflow-x: hidden;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: "Playfair Display", Georgia, serif;
+  }
+
+  @media (pointer: fine) {
+    body:not(.keyboard-navigating) * {
+      cursor: none !important;
+    }
+  }
+
+  /* WCAG AAA High-Contrast Focus Visible Rings */
+  *:focus-visible {
+    outline: 2px solid #ff3b1f !important;
+    outline-offset: 3px !important;
+    box-shadow: 0 0 0 3px rgba(0, 0, 0, 0.9) !important;
+    border-radius: 4px;
+  }
+}
+
+/* WCAG AAA Reduced Motion support */
+@media (prefers-reduced-motion: reduce) {
+  *, ::before, ::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Hand-drawn and rough paper edges */
+.rough-sketch-border {
+  filter: url(#rough-edge-filter);
+}
+
+.rough-pencil-border {
+  border: 1.5px solid rgba(43, 43, 43, 0.4);
+  box-shadow: 
+    0 0 0 1px rgba(255, 255, 255, 0.1),
+    inset 0 0 10px rgba(0, 0, 0, 0.05);
+}
+
+/* Subtle tactile paper texture */
+.paper-grain {
+  background-color: transparent;
+  background-image: 
+    radial-gradient(rgba(244, 244, 240, 0.05) 0.75px, transparent 0.75px),
+    radial-gradient(rgba(140, 116, 79, 0.04) 0.5px, transparent 0.5px);
+  background-size: 24px 24px, 12px 12px;
+  background-position: 0 0, 6px 6px;
+}
+
+/* Custom scrollbar with hardcoded colors */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #1c201d; 
+}
+::-webkit-scrollbar-thumb {
+  background: #2d332f; 
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #ff3b1f; 
+}
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+@utility animate-float {
+  animation: float 4s ease-in-out infinite;
+}
+
+/* 3D Physical Sketchbook CSS from user specifications */
+.book-section {
+  width: 100%;
+  text-align: center;
+}
+
+.book-leaf {
+  transform-style: preserve-3d;
+  will-change: transform;
+}
